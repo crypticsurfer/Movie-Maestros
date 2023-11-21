@@ -42,7 +42,7 @@ const resolvers = {
 
       // Return an `Auth` object that consists of the signed token and user's information
       return { token, user };
-    },
+    }};
+  
     
-
 module.exports = resolvers,
