@@ -10,7 +10,7 @@ const resolvers = {
       return User.findOne({ username }).populate('');
     },
     movie: async (parent, { apiId }) => {
-      return Movie.findOne({ _id: apiId });
+      return Movie.findOne({ apiId: apiId });
     },
   },
   

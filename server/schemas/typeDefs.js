@@ -6,6 +6,12 @@ const typeDefs = `
     password: String
   }
 
+  type Movie {
+    _id: ID
+    title: String
+    apiId: Int
+  }
+
   type Auth {
     token: ID!
     user: User
@@ -13,6 +19,7 @@ const typeDefs = `
 
   type Query {
     users: [User]
+    movie(apiID: Int!): Movie
     user(username: String!): User
   }
 
