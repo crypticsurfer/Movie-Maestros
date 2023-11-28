@@ -1,4 +1,7 @@
 import './App.css'
+import React from 'react';
+import { Typography, AppBar, Card, CardActions, CardContent, CardMedia, CssBaseline, Grid, Toolbar, Container} from '@material-ui/core';
+import { Movie } from '@material-ui/icons';
 import {
   ApolloClient,
   InMemoryCache,
@@ -6,13 +9,10 @@ import {
   createHttpLink,
 } from '@apollo/client';
 import { setContext } from '@apollo/client/link/context';
-// import Home from './pages/Home';
+//import Home from './pages/Home';
 import { Outlet } from 'react-router-dom';
 import Header from './components/Header';
 import Footer from './components/Footer';
-
-
-
 
 
 const httpLink = createHttpLink({
@@ -37,20 +37,29 @@ const client = new ApolloClient({
 
 function App() {
   return (
-    <ApolloProvider client={client}>
-      <div className="flex-column justify-flex-start min-100-vh">
-        <Header />
 
+    <ApolloProvider client={client}>
+      <CssBaseline />
+      <AppBar position='relative'>
+        <Toolbar>
+          <Movie />
+          <Typography variant='h6'>
+            Movie Maestros
+          </Typography>
+        </Toolbar>
+      </AppBar>
+       <div className="flex-column justify-flex-start min-100-vh">
+        <Header />
         
         <div className="container">
-          {/* <Header/> */}
-          {/* <Home /> */}
-          <Outlet />
-          <Footer/>
-        </div>
-      </div>
-    </ApolloProvider>
-  );
-}
+           {/* <Header/> */}
+           {/* <Home /> */}
+           <Outlet />
+           <Footer/>
+         </div>
+       </div>
+     </ApolloProvider>
+   );
+ }
 
 export default App;
