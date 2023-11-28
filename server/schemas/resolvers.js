@@ -9,8 +9,11 @@ const resolvers = {
     user: async (parent, { username }) => {
       return User.findOne({ username }).populate('');
     },
+    movie: async (parent, { apiId }) => {
+      return Movie.findOne({ apiId: apiId });
+    },
   },
-
+  
   Mutation: {
     addUser: async (parent, { username, email, password }) => {
       const user = await User.create({ username, email, password });
