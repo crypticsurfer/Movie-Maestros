@@ -1,4 +1,7 @@
 import './App.css'
+import React from 'react';
+
+
 import {
   ApolloClient,
   InMemoryCache,
@@ -6,9 +9,9 @@ import {
   createHttpLink,
 } from '@apollo/client';
 import { setContext } from '@apollo/client/link/context';
-// import Home from './pages/Home';
+//import Home from './pages/Home';
 import { Outlet } from 'react-router-dom';
-import Header from './components/Header';
+import  Header from './components/Header';
 import Footer from './components/Footer';
 
 const httpLink = createHttpLink({
@@ -32,21 +35,24 @@ const client = new ApolloClient({
 
 
 function App() {
+ 
   return (
-    <ApolloProvider client={client}>
-      <div className="flex-column justify-flex-start min-100-vh">
-        <Header />
 
+    <ApolloProvider client={client}>
+      
+
+       <div className="flex-column justify-flex-start min-100-vh">
+       
         
-        <div className="container">
-          {/* <Header/> */}
-          {/* <Home /> */}
-          <Outlet />
-          <Footer/>
-        </div>
-      </div>
-    </ApolloProvider>
-  );
-}
+        {/* <div className={classes.container}> */}
+           <Header/>
+           {/* <Home /> */}
+           <Outlet />
+           <Footer/>
+         </div>
+       {/* </div> */}
+     </ApolloProvider>
+   );
+ }
 
 export default App;

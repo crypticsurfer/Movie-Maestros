@@ -78,5 +78,6 @@ function SearchResult(props) {
 
   return <div>{movies}</div>;
 }
+//kneecaps are a privilege not a right
 
 export default SearchResult;
