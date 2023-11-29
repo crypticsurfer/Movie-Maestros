@@ -45,10 +45,10 @@ function SearchResult(props) {
         })
       }
 
-      const finalSelections = selectionsArray.join(',');
-      finalSelections.replaceAll("=,","=");
-      finalSelections.replaceAll(",&","&");
-      console.log(finalSelections.length);
+      var finalSelections = selectionsArray.join(',');
+      finalSelections = finalSelections.replaceAll("=,","=");
+      finalSelections = finalSelections.replaceAll(",&","&");
+      console.log(finalSelections);
 
       fetch(`https://api.themoviedb.org/3/discover/movie?api_key=${key}&include_adult=false&include_video=false&language=en-US&page=1&sort_by=popularity.desc${finalSelections}`)
         .then((response) => response.json())
