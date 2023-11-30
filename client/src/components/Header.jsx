@@ -17,7 +17,7 @@ import MenuItem from '@mui/material/MenuItem';
 
 // import useStyles from '../styles';
 
-const pages = ["HOME", "Filter", "Recommended", "Most Liked", "My Likes", "Random", "LOGIN"]
+const pages = ["HOME", "Recommended", "My Likes", "LOGIN"]
 const settings = ['Profile', 'Account', 'Logout'];
 function Header() {
     // const classes = useStyles()
