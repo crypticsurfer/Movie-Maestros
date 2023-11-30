@@ -50,7 +50,7 @@ function Header() {
               variant="h6"
               noWrap
               component="a"
-              href="#app-bar-with-responsive-menu"
+              href="/"
               sx={{
                 mr: 2,
                 display: { xs: 'none', md: 'flex' },
@@ -72,10 +72,13 @@ function Header() {
                 aria-haspopup="true"
                 onClick={handleOpenNavMenu}
                 color="inherit"
+                href="/login"
+
               >
                 <MenuIcon />
               </IconButton>
               <Menu
+      
                 id="menu-appbar"
                 anchorEl={anchorElNav}
                 anchorOrigin={{
@@ -105,7 +108,7 @@ function Header() {
               variant="h5"
               noWrap
               component="a"
-              href="#app-bar-with-responsive-menu"
+              // href="#app-bar-with-responsive-menu"
               sx={{
                 mr: 2,
                 display: { xs: 'flex', md: 'none' },
@@ -125,9 +128,11 @@ function Header() {
                   key={page}
                   onClick={handleCloseNavMenu}
                   sx={{ my: 2, color: 'white', display: 'block' }}
+                  href='/'
                 >
                   {page}
                 </Button>
+                
               ))}
             </Box>
   
