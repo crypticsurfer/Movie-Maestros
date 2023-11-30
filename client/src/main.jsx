@@ -5,7 +5,7 @@ import App from './App.jsx'
 import Home from './pages/Home.jsx';
 import ErrorPage from './pages/ErrorPage.jsx';
 // import Signup from './pages/Signup';
-// import Login from './pages/Login';
+import Login from './pages/Login';
 
 const router = createBrowserRouter([
   {
@@ -17,10 +17,10 @@ const router = createBrowserRouter([
         index: true,
         element: <Home />
       }, 
-      // {
-      //   path: '/login',
-      //   element: <Login />
-      // }, 
+      {
+        path: '/login',
+        element: <Login />
+      }, 
       // {
       //   path: '/signup',
       //   element: <Signup />
