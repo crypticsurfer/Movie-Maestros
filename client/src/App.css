@@ -75,6 +75,21 @@ body {
   /* margin: 100px 50px 0px 50px; */
 }
 
+.movieContainer {
+  display: flex;
+  height: 400px;
+  gap: 20px;
+  margin-bottom: 100px;
+  /* background-color: red; */
+}
+
+.movieCard {
+  display: flex;
+  flex-direction: column;
+  border: solid grey .5px;
+  text-align: center;
+}
+
 .footer {
     display: flex;
     list-style: none;
@@ -93,3 +108,4 @@ body {
     cursor: pointer;
   
 }
+

@@ -1,5 +1,9 @@
 // import { useState } from 'react';
-import { Link } from 'react-router-dom';
+// import React from 'react';
+import { Link } from 'react-router-dom'; 
+import  Header from '../components/Header';
+import Footer from '../components/Footer';
+
 // import { useMutation } from '@apollo/client';
 // import { LOGIN_USER } from '../utils/mutations';
 
@@ -142,6 +146,7 @@ return (
         </div>
       </div>
     </div>
+    {/* <Footer/> */}
   </main>
 );
 };

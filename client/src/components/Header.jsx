@@ -17,8 +17,9 @@ import MenuItem from '@mui/material/MenuItem';
 
 // import useStyles from '../styles';
 
-const pages = ["HOME", "Recommended", "My Likes", "LOGIN"]
-const settings = ['Profile', 'Account', 'Logout'];
+//const pages = ["HOME", "Recommended", "My Likes", "LOGIN"]
+const pages = [{name:"HOME", url: "/"}, {name:"Recommended", url: "/recommended"}, {name:"My Likes", url: "/my-likes"}, {name: "LOGIN", url: "/login"}]
+const settings = ['Profile', 'Account', 'Logout']; 
 function Header() {
     // const classes = useStyles()
     
@@ -33,6 +34,7 @@ function Header() {
     };
 
     const handleCloseNavMenu = () => {
+        
         setAnchorElNav(null);
     };
 
@@ -97,8 +99,8 @@ function Header() {
                 }}
               >
                 {pages.map((page) => (
-                  <MenuItem key={page} onClick={handleCloseNavMenu}>
-                    <Typography textAlign="center">{page}</Typography>
+                  <MenuItem key={page.name} onClick={handleCloseNavMenu}>
+                    <Typography textAlign="center">{page.name}</Typography>
                   </MenuItem>
                 ))}
               </Menu>
@@ -125,17 +127,19 @@ function Header() {
             <Box sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex' } }}>
               {pages.map((page) => (
                 <Button
-                  key={page}
+                  key={page.name}
                   onClick={handleCloseNavMenu}
                   sx={{ my: 2, color: 'white', display: 'block' }}
-                  href='/'
+                  href={page.url}
                 >
-                  {page}
+                  {page.name}
                 </Button>
                 
               ))}
             </Box>
   
+
+  {/* nav dropdown */}
             <Box sx={{ flexGrow: 0 }}>
               <Tooltip title="Open settings">
                 <IconButton onClick={handleOpenUserMenu} sx={{ p: 0 }}>
