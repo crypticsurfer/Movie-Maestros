@@ -77,7 +77,7 @@ function MovieContainer(props) {
 
   }, [props.keywords, props.actors, props.genres, key]);
 
-  return <Box sx={{ borderRadius: '16px', width: 'auto'}}>{movies}</Box>;
+  return <div>{movies}</div>;
 }
 //kneecaps are a privilege not a right
 
