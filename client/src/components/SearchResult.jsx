@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import MovieCard from './MovieCard';
-
+import MovieContainer from './MovieContainer';
 function SearchResult(props) {
   const key = import.meta.env.VITE_API_KEY;
   const [movies, setMovies] = useState([]);
@@ -76,7 +76,7 @@ function SearchResult(props) {
 
   }, [props.keywords, props.actors, props.genres, key]);
 
-  return <div>{movies}</div>;
+  return <div className='movieContainer'>{movies}</div>;
 }
 //kneecaps are a privilege not a right
 
