@@ -47,60 +47,6 @@ const Home = () => {
     { id: '37', label: 'Western' },
   ];
 
-  
-
-
-//   return (
-//     <div>
-
-//       <div className='main-container'>
-//         <h1>Movie Maestros</h1>
-//         <p>you can separate multiple actors/keywords with a comma</p>
-//         <input
-//           placeholder='Keywords'
-//           value={keywords}
-//           onChange={(e) => setKeywords(e.target.value)}
-//         />
-//         <input
-//           placeholder='Actors'
-//           value={actors}
-//           onChange={(e) => setActors(e.target.value)}
-//         />
-// {/* 
-//         <Dropdown/> */}
-//         {genreOptions.map((genre) => (
-//           <div className="checkbox-container" key={genre.id}>
-//             <div className='checkBoxes'>
-
-//               <label>
-//                 <input
-//                   type='checkbox'
-//                   value={genre.id}
-//                   checked={genres.includes(genre.id)}
-//                   onChange={() => handleGenreChange(genre.id)}
-//                 />
-//                 {genre.label}
-//               </label>
-//             </div>
-
-//           </div>
-
-//         ))}
-
-//         <button onClick={handleSearch}>SEARCH</button>
-//       </div>
-
-//       {searchClicked && (
-//         <SearchResult keywords={keywords} actors={actors} genres={genres} onRender={handleSearchResultRender} />
-//       )}
-//     </div>
-//   );
-// };
-
-// export default Home;
-
-
-
   return (
     <div>
 
