@@ -12,6 +12,15 @@ const resolvers = {
     movie: async (parent, { apiId }) => {
       return Movie.findOne({ apiId: apiId });
     },
+    getUserWatchlist: async (parent, { userId }) => {
+      try {
+        const user = await User.findById(userId).populate('watchlist');
+        return user.watchlist;
+      } catch (error) {
+        console.error('Error fetching user watchlist:', error);
+        throw new Error('Internal Server Error');
+      }
+    },
   },
   
   Mutation: {
@@ -36,6 +45,35 @@ const resolvers = {
       const token = signToken(user);
 
       return { token, user };
+    },
+    addToWatchlist: async (parent, { userId, apiId }) => {
+      try {
+        // Find the user by ID and update the watchlist
+        const user = await User.findByIdAndUpdate(
+          userId,
+          { $addToSet: { watchlist: apiId }},
+          { new: true }
+        ).populate('watchlist'); // Populate the watchlist field
+
+        return user;
+      } catch (error) {
+        console.error('Error adding movie to watchlist:', error);
+        throw new Error('Internal Server Error');
+      }
+    },
+    removeFromWatchlist: async (parent, { userId, apiIdId }) => {
+      try {
+        const user = await User.findByIdAndUpdate(
+          userId,
+          { $pull: { watchlist: apiId } }, // Use $pull to remove the movieId from the watchlist
+          { new: true }
+        ).populate('watchlist');
+
+        return user;
+      } catch (error) {
+        console.error('Error removing movie from watchlist:', error);
+        throw new Error('Internal Server Error');
+      }
     },
   },
 };
