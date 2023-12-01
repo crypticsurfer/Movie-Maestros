@@ -1,10 +1,11 @@
-import MovieCard from "./MovieCard";
+// import MovieCard from "./MovieCard";
 
-function MovieContainer(){
-  <div>
-    <MovieCard/>
-  </div>
-}
+// function MovieContainer(){
+//   <div>
+//   HELLOOOOOO
+//     {/* <MovieCard/> */}
+//   </div>
+// }
 
 
-export default MovieContainer;
+// export default MovieContainer;
