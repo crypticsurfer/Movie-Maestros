@@ -85,9 +85,19 @@ body {
 
 .movieCard {
   display: flex;
+  justify-content: center;
+  align-items: center;
   flex-direction: column;
   border: solid grey .5px;
   text-align: center;
+}
+
+.pageTitle {
+  font-size: 40px;
+}
+
+#btn{
+  width: 150px;
 }
 
 .footer {
