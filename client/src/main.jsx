@@ -7,7 +7,7 @@ import ErrorPage from './pages/ErrorPage.jsx';
 // import Signup from './pages/Signup';
 import Login from './pages/Login';
 import Recommended from './pages/Recommended.jsx';
-import SignUp from './pages/SignUp.jsx'
+import SignUp from './pages/Signup.jsx';
 import WatchList from './pages/WatchList.jsx';
 
 const router = createBrowserRouter([
