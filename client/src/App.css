@@ -77,7 +77,11 @@ body {
 
 .movieContainer {
   display: flex;
-  height: 400px;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+  /* height: 600px; */
   gap: 20px;
   margin-bottom: 100px;
   /* background-color: red; */
@@ -86,10 +90,17 @@ body {
 .movieCard {
   display: flex;
   justify-content: center;
+  width: 200px;
+  /* height: 450px; */
   align-items: center;
   flex-direction: column;
   border: solid grey .5px;
   text-align: center;
+  /* background-color: blue; */
+}
+
+.movieImg {
+  width: 100px;
 }
 
 .pageTitle {

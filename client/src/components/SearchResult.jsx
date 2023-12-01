@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import MovieCard from './MovieCard';
-import MovieContainer from './MovieContainer';
+// import MovieContainer from './MovieContainer';
 function SearchResult(props) {
   const key = import.meta.env.VITE_API_KEY;
   const [movies, setMovies] = useState([]);
