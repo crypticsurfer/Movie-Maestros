@@ -18,7 +18,7 @@ import MenuItem from '@mui/material/MenuItem';
 // import useStyles from '../styles';
 
 //const pages = ["HOME", "Recommended", "My Likes", "LOGIN"]
-const pages = [{name:"HOME", url: "/"}, {name:"Recommended", url: "/recommended"}, {name:"My Likes", url: "/my-likes"}, {name: "LOGIN", url: "/login"}]
+const pages = [{name:"HOME", url: "/"}, {name:"Recommended", url: "/recommended"}, {name:"Watchlist", url: "/watch-list"}, {name: "LOGIN", url: "/login"}]
 const settings = ['Profile', 'Account', 'Logout']; 
 function Header() {
     // const classes = useStyles()
