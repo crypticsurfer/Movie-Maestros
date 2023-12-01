@@ -7,6 +7,7 @@ import ErrorPage from './pages/ErrorPage.jsx';
 // import Signup from './pages/Signup';
 import Login from './pages/Login';
 import Recommended from './pages/Recommended.jsx';
+import SignUp from './pages/SignUp.jsx'
 import WatchList from './pages/WatchList.jsx';
 
 const router = createBrowserRouter([
@@ -26,6 +27,10 @@ const router = createBrowserRouter([
       {
         path: '/recommended',
         element: <Recommended />
+      },
+      {
+        path: '/signup',
+        element: <SignUp />
       },
       {
         path: '/watch-list',

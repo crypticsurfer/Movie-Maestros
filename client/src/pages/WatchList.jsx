@@ -7,7 +7,10 @@ function WatchList() {
     <div>
       <h1 className='pageTitle'>My Watch List</h1>
       <div className='movieContainer'>
-        <MovieCard />
+      <div className='movieCard'>
+                <MovieCard/>
+      </div>
+
       </div>
     </div>
 

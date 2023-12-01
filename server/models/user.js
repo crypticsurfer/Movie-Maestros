@@ -1,5 +1,6 @@
 const {Schema, model} = require('mongoose');
 const bcrypt = require('bcrypt');
+const Movie = require('./movie');
 
 const userSchema = new Schema({
     username: {
@@ -19,6 +20,12 @@ const userSchema = new Schema({
         required: true,
         minlength: 8,
     },
+    watchlist: [
+        {
+            type: Schema.Types.ObjectId,
+            ref: 'Movie',
+        },
+    ],
 });
 
 userSchema.pre('save', async function (next) {
