@@ -1,51 +1,31 @@
+import React, { useState } from 'react';
+
+const Dropdown = ({ options, onSelect }) => {
+  const [selectedOption, setSelectedOption] = useState('');
+
+  const handleSelect = (event) => {
+    const selectedValue = event.target.value;
+    setSelectedOption(selectedValue);
+    onSelect(selectedValue);
+  };
 
 
-//     const Dropdown = () => {
-//   return (
-//     <div>
-//     </div>
-//   );
-// };
 
-// export default Dropdown;
+  return (
+    <div className="dropdown">
+      <select value={selectedOption} onChange={handleSelect}>
+        <option value="">Select an option</option>
+        {options.map((option) => (
+          <option key={option.id} value={option.id}>
+            {option.label}
+          </option>
+        ))}
+      </select>
+      <p>Selected option: {selectedOption}</p>
+    </div>
+  );
+};
 
-
-
-// import React, { useState } from 'react';
-
-// const Dropdown = () => {
-//   const [isOpen, setIsOpen] = useState(false);
-//   const [selectedOption, setSelectedOption] = useState('');
-
-//   const toggleDropdown = () => {
-//     setIsOpen(!isOpen);
-//   };
-
-//   const handleOptionSelect = (option) => {
-//     setSelectedOption(option);
-//     setIsOpen(false);
-//   };
-
-//   const dropdownOptions = ['Option 1', 'Option 2', 'Option 3', 'Option 4'];
+export default Dropdown;
 
 
-//   return (
-//     <div className="dropdown">
-//       <button className="btn btn-primary" onClick={toggleDropdown}>
-//         Select an Option
-//       </button>
-//       {isOpen && (
-//         <ul className="dropdown-menu" aria-labelledby="dropdownMenuButton">
-//           {dropdownOptions.map((option) => (
-//             <li key={option} onClick={() => handleOptionSelect(option)}>
-//               {option}
-//             </li>
-//           ))}
-//         </ul>
-//       )}
-//       {selectedOption && <p>You selected: {selectedOption}</p>}
-//     </div>
-//   );
-// };
-
-// export default Dropdown;

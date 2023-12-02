@@ -47,12 +47,15 @@ const Home = () => {
     { id: '37', label: 'Western' },
   ];
 
+
   return (
     <div>
 
       <div className='main-container'>
-        <h1>Movie Maestros</h1>
+        <h1 className='pageTitle'>Movie Maestros</h1>
         <p>you can separate multiple actors/keywords with a comma</p>
+
+        <div className='homeInputContainer'>
         <input
           placeholder='Keywords'
           value={keywords}
@@ -63,28 +66,32 @@ const Home = () => {
           value={actors}
           onChange={(e) => setActors(e.target.value)}
         />
-{/* 
-        <Dropdown/> */}
-        {genreOptions.map((genre) => (
-          <div className="checkbox-container" key={genre.id}>
-            <div className='checkBoxes'>
+        </div>
+ 
 
-              <label>
-                <input
-                  type='checkbox'
-                  value={genre.id}
-                  checked={genres.includes(genre.id)}
-                  onChange={() => handleGenreChange(genre.id)}
-                />
-                {genre.label}
-              </label>
+        {/* <Dropdown options={genreOptions} onSelect={handleGenreChange} /> */}
+        {genreOptions.map((genre) => (
+          <div key={genre.id}>
+            <div>
+              <div className='checkboxEl'>
+                <label>
+                  <input
+                    type='checkbox'
+                    value={genre.id}
+                    checked={genres.includes(genre.id)}
+                    onChange={() => handleGenreChange(genre.id)}
+                  />
+                  {genre.label}
+                </label>
+              </div>
             </div>
+
 
           </div>
 
         ))}
 
-        <button onClick={handleSearch}>SEARCH</button>
+        <button id='searchBtn' onClick={handleSearch}>SEARCH</button>
       </div>
 
       {searchClicked && (
