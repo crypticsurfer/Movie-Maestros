@@ -1,6 +1,15 @@
 import { useQuery } from '@apollo/client';
 import React, { useState } from 'react';
 import SearchResult from '../components/SearchResult';
+import Button from '@mui/material/Button';
+import SearchIcon from '@mui/icons-material/Search';
+import Stack from '@mui/material/Stack';
+import Box from '@mui/material/Box';
+import TextField from '@mui/material/TextField';
+import { createTheme } from '@mui/material/styles';
+import { blue } from '@mui/material/colors';
+
+
 // import Dropdown from '../components/Dropdown';
 
 const Home = () => {
@@ -47,25 +56,42 @@ const Home = () => {
     { id: '37', label: 'Western' },
   ];
 
+  const theme = createTheme({
+    palette: {
+      primary: {
+        main: blue[500],
+      },
+      secondary: {
+        main: '#2979ff',
+      },
+    },
+  });
 
   return (
     <div>
-
       <div className='main-container'>
         <h1 className='pageTitle'>Movie Maestros</h1>
         <p>you can separate multiple actors/keywords with a comma</p>
 
         <div className='homeInputContainer'>
-        <input
-          placeholder='Keywords'
-          value={keywords}
-          onChange={(e) => setKeywords(e.target.value)}
-        />
-        <input
-          placeholder='Actors'
-          value={actors}
-          onChange={(e) => setActors(e.target.value)}
-        />
+        <Box
+      component="form"
+      sx={{
+        '& > :not(style)': { m: 1, width: '25ch' },
+      }}
+      noValidate
+      autoComplete="off"
+    >
+      <TextField id="outlined-basic" size="small" label="Keyword" variant="outlined" 
+      value={keywords}
+      onChange={(e) => setKeywords(e.target.value)}
+      />
+      <br></br>
+      <TextField id="outlined-basic" size="small" label="Actor" variant="outlined" 
+      value={actors}
+      onChange={(e) => setActors(e.target.value)}
+      />
+      </Box>
         </div>
  
 
@@ -91,7 +117,12 @@ const Home = () => {
 
         ))}
 
-        <button id='searchBtn' onClick={handleSearch}>SEARCH</button>
+        {/* <button id='searchBtn' onClick={handleSearch}>SEARCH</button> */}
+        <Stack direction="row" spacing={1}>
+      <Button id='searchBtn' onClick={handleSearch} color="primary" variant="contained" size="large" startIcon={<SearchIcon />}>
+        Search
+      </Button>
+      </Stack>
       </div>
 
       {searchClicked && (
