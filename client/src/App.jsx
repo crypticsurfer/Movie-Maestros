@@ -39,19 +39,12 @@ function App() {
   return (
 
     <ApolloProvider client={client}>
-      
-
-       <div className="flex-column justify-flex-start min-100-vh">
-       
-        
-        {/* <div className={classes.container}> */}
-           <Header/>
-           {/* <Home /> */}
-           <Outlet />
-           <Footer/>
-         </div>
-       {/* </div> */}
-     </ApolloProvider>
+      <div className="flex-column justify-flex-start min-100-vh">
+          <Header/>
+          <Outlet />
+          <Footer/>
+      </div>
+    </ApolloProvider>
    );
  }
 
