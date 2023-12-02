@@ -44,3 +44,14 @@ export const LOGIN_USER = gql`
     }
   }
 `;
+
+export const ADD_MOVIE = gql`
+  mutation AddMovie($apiId: Int!, $title: String!, $posterPath: String!) {
+    addMovie(apiId: $apiId, title: $title, posterPath: $posterPath) {
+      _id
+      apiId
+      title
+      posterPath
+    }
+  }
+`;
