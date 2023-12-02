@@ -22,8 +22,7 @@ const userSchema = new Schema({
     },
     watchlist: [
         {
-            type: Schema.Types.ObjectId,
-            ref: 'Movie',
+            type: Number
         },
     ],
 });

@@ -1,4 +1,4 @@
-const { User } = require('../models');
+const { User, Movie } = require('../models');
 const { signToken, AuthenticationError } = require('../utils/auth');
 
 const resolvers = {
@@ -18,6 +18,20 @@ const resolvers = {
         return user.watchlist;
       } catch (error) {
         console.error('Error fetching user watchlist:', error);
+        throw new Error('Internal Server Error');
+      }
+    },
+    checkMovieInWatchlist: async (parent , { userId, apiId }) => {
+      try {
+        const user = await User.findById(userId);
+        if (!user) {
+          throw new Error('User not found');
+        }
+
+        const isInWatchlist = user.watchlist.some((movie) => movie.apiId === apiId);
+        return isInWatchlist;
+      } catch (error) {
+        console.error('Error checking movie in watchlist:', error);
         throw new Error('Internal Server Error');
       }
     },
@@ -48,12 +62,11 @@ const resolvers = {
     },
     addToWatchlist: async (parent, { userId, apiId }) => {
       try {
-        // Find the user by ID and update the watchlist
         const user = await User.findByIdAndUpdate(
           userId,
           { $addToSet: { watchlist: apiId }},
           { new: true }
-        ).populate('watchlist'); // Populate the watchlist field
+        ).populate('watchlist');
 
         return user;
       } catch (error) {
@@ -61,7 +74,7 @@ const resolvers = {
         throw new Error('Internal Server Error');
       }
     },
-    removeFromWatchlist: async (parent, { userId, apiIdId }) => {
+    removeFromWatchlist: async (parent, { userId, apiId }) => {
       try {
         const user = await User.findByIdAndUpdate(
           userId,
@@ -72,6 +85,18 @@ const resolvers = {
         return user;
       } catch (error) {
         console.error('Error removing movie from watchlist:', error);
+        throw new Error('Internal Server Error');
+      }
+    },
+    addMovie: async (parent, { apiId, title, posterPath }) => {
+      try {
+        const newMovie = await Movie.create({
+          apiId,
+          title
+        });
+        return newMovie;
+      } catch (error) {
+        console.error('Error adding movie:', error);
         throw new Error('Internal Server Error');
       }
     },
