@@ -1,20 +1,17 @@
 import { gql } from '@apollo/client';
 
 export const ADD_TO_WATCHLIST = gql`
-  mutation AddToWatchlist($userId: ID!, $apiId: ID!) {
+  mutation AddToWatchlist($userId: ID!, $apiId: Int!) {
     addToWatchlist(userId: $userId, apiId: $apiId) {
       _id
-      title
     }
   }
 `;
 
 export const REMOVE_FROM_WATCHLIST = gql`
-  mutation RemoveFromWatchlist($userId: ID!, $apiId: ID!) {
+  mutation RemoveFromWatchlist($userId: ID!, $apiId: Int!) {
     removeFromWatchlist(userId: $userId, apiId: $apiId) {
       _id
-      title
-      apiId
     }
   }
 `;
@@ -41,6 +38,16 @@ export const LOGIN_USER = gql`
         username
         email
       }
+    }
+  }
+`;
+
+export const ADD_MOVIE = gql`
+  mutation AddMovie($apiId: Int!, $title: String!) {
+    addMovie(apiId: $apiId, title: $title) {
+      _id
+      apiId
+      title
     }
   }
 `;
