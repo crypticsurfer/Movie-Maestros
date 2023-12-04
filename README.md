@@ -9,7 +9,7 @@
 <br>
 
 ## Description
-Movie Maestros gives you movie reccomendations based on other films that you like or based on keywords or genres It's powered by React.js, MongoDB, and GraphQL <br /> <br />
+Movie Maestros gives you movie reccomendations based on other films that you like or based on keywords or genres It's powered by React.js, MongoDB, and GraphQL, AppolloServer, MUI & JWT <br /> <br />
 
 
 ## Table of Contents:
@@ -36,7 +36,7 @@ Movie Maestros gives you movie reccomendations based on other films that you lik
 <p align="center"><font size="4"><a href="insert google font link" target="_blank" rel="noreferrer">Video Demo</a></font></p>
 
 ## Link to Deployed Page:
-<a href="insert link here" target="_blank" rel="noreferrer">Try Out Movie Maestros Now!</a>
+<a href="https://movie-maestros-production.up.railway.app/" target="_blank" rel="noreferrer">Try Out Movie Maestros Now!</a>
 
 ## References:
 * insert references here  <br />
@@ -48,10 +48,8 @@ Movie Maestros gives you movie reccomendations based on other films that you lik
  ![GraphQL](https://img.shields.io/badge/-GraphQL-E10098?style=for-the-badge&logo=graphql&logoColor=white)
  ![Apollo-GraphQL](https://img.shields.io/badge/-ApolloGraphQL-311C87?style=for-the-badge&logo=apollo-graphql)
  ![JWT](https://img.shields.io/badge/JWT-black?style=for-the-badge&logo=JSON%20web%20tokens)
- ![Styled Components](https://img.shields.io/badge/styled--components-DB7093?style=for-the-badge&logo=styled-components&logoColor=white)
- ![Heroku](https://img.shields.io/badge/heroku-%23430098.svg?style=for-the-badge&logo=heroku&logoColor=white)
  ![GitHub](https://img.shields.io/badge/github-%23121011.svg?style=for-the-badge&logo=github&logoColor=white)
- ![AWS](https://img.shields.io/badge/AWS-%23FF9900.svg?style=for-the-badge&logo=amazon-aws&logoColor=white)
+ 
  
 
 ## Development Process:
