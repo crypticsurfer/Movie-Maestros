@@ -4,12 +4,13 @@ const typeDefs = `
     username: String
     email: String
     password: String
-    watchlist: [Movie]
+    watchlist: [Int!]
   }
 
   type Movie {
     _id: ID
-    apiId: Int
+    apiId: Int!
+    title: String!
   }
 
   type Auth {
@@ -22,13 +23,15 @@ const typeDefs = `
     movie(apiId: Int!): Movie
     user(username: String!): User
     getUserWatchlist(userId: ID!): [Movie]
+    checkMovieInWatchlist(userId: ID!, apiId: Int!): Boolean!
   }
 
   type Mutation {
     addUser(username: String!, email: String!, password: String!): Auth
     login(email: String!, password: String!): Auth
-    addToWatchlist(userId: ID!, apiId: ID!): User
-    removeFromWatchlist(userId: ID!, apiId: ID!): User
+    addToWatchlist(userId: ID!, apiId: Int!): User
+    removeFromWatchlist(userId: ID!, apiId: Int!): User
+    addMovie(apiId: Int!, title: String!): Movie
   }
 `;
 

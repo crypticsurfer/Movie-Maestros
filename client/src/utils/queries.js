@@ -38,3 +38,9 @@ export const GET_USER_WATCHLIST = gql`
     }
   }
 `;
+
+export const CHECK_MOVIE_IN_WATCHLIST = gql`
+  query CheckMovieInWatchlist($userId: ID!, $apiId: Int!) {
+    checkMovieInWatchlist(userId: $userId, apiId: $apiId)
+  }
+`;
