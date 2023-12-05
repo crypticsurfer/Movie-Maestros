@@ -28,13 +28,10 @@ export const GET_MOVIE_BY_APIID = gql`
 `;
 
 export const GET_USER_WATCHLIST = gql`
-  query GetUserWatchlist($userId: ID!) {
-    user(userId: $userId) {
+  query GetUserWatchlist($username: String!) {
+    user(username: $username) {
       _id
-      watchlist {
-        _id
-        apiId
-      }
+      watchlist
     }
   }
 `;

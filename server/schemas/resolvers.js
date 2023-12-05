@@ -12,9 +12,9 @@ const resolvers = {
     movie: async (parent, { apiId }) => {
       return Movie.findOne({ apiId: apiId });
     },
-    getUserWatchlist: async (parent, { userId }) => {
+    getUserWatchlist: async (parent, { username }) => {
       try {
-        const user = await User.findById(userId).populate('watchlist');
+        const user = await User.findById(username).populate('watchlist');
         return user.watchlist;
       } catch (error) {
         console.error('Error fetching user watchlist:', error);

@@ -20,11 +20,7 @@ const userSchema = new Schema({
         required: true,
         minlength: 8,
     },
-    watchlist: [
-        {
-            type: Number
-        },
-    ],
+    watchlist: [Number],
 });
 
 userSchema.pre('save', async function (next) {
