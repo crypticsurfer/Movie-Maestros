@@ -11,21 +11,8 @@ function MovieCard({ apiId, posterPath, title }) {
   const [addToWatchlistMutation] = useMutation(ADD_TO_WATCHLIST);
   const [removeFromWatchlistMutation] = useMutation(REMOVE_FROM_WATCHLIST);
   const [isInWatchlist, setIsInWatchlist] = useState(false);
-  var NEWposterPath = '';
-  var NEWtitle = '';
-
-  if(!title){
-    fetch(`https://api.themoviedb.org/3/movie/${apiId}?api_key=${key}&language=en-US`)
-        .then((response) => response.json())
-        .then((data) => {
-          console.log(data);
-          NEWposterPath = data.poster_path;
-          NEWtitle = data.title;
-        })
-        .catch((err) => {
-          console.log(err.message);
-        });
-  }
+  const [NEWposterPath, setNewPosterPath] = useState('');
+  const [NEWtitle, setNewTitle] = useState('');
 
   const profile = AuthService.getProfile();
 
@@ -36,6 +23,20 @@ function MovieCard({ apiId, posterPath, title }) {
   useEffect(() => {
     setIsInWatchlist(data?.checkMovieInWatchlist);
   }, [data]);
+
+  useEffect(() => {
+    if (!title) {
+      fetch(`https://api.themoviedb.org/3/movie/${apiId}?api_key=${key}&language=en-US`)
+        .then((response) => response.json())
+        .then((data) => {
+          setNewPosterPath(data.poster_path);
+          setNewTitle(data.title);
+        })
+        .catch((err) => {
+          console.log(err.message);
+        });
+    }
+  }, [apiId, key, title]);
 
   const handleToggleWatchlist = () => {
     if (!AuthService.loggedIn) {
@@ -77,12 +78,12 @@ function MovieCard({ apiId, posterPath, title }) {
 
   return (
     <div className='movieCard'>
-      {posterPath === undefined ? 
-      <img src={`https://image.tmdb.org/t/p/w185/${NEWposterPath}`} alt={NEWtitle} />
-      :
-      <img src={`https://image.tmdb.org/t/p/w185/${posterPath}`} alt={title} />
-      }
-      <h3>{title}</h3>
+      {posterPath === undefined ? (
+        <img src={`https://image.tmdb.org/t/p/w185/${NEWposterPath}`} alt={NEWtitle} />
+      ) : (
+        <img src={`https://image.tmdb.org/t/p/w185/${posterPath}`} alt={title} />
+      )}
+      <h3>{title || NEWtitle}</h3>
       <button onClick={handleToggleWatchlist}>
         {isInWatchlist ? <p>Remove from Watchlist</p> : <p>Add to Watchlist</p>}
       </button>
