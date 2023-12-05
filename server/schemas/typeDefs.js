@@ -22,7 +22,7 @@ const typeDefs = `
     users: [User]
     movie(apiId: Int!): Movie
     user(username: String!): User
-    getUserWatchlist(userId: ID!): [Movie]
+    getUserWatchlist(username: String!): [Int!]
     checkMovieInWatchlist(userId: ID!, apiId: Int!): Boolean!
   }
 
